@@ -1,6 +1,6 @@
 - type: 1
   title: Prowlarr
-  name: booksonic
+  name: prowlarr
   description: "Prowlarr is a indexer manager proxy"
   logo: "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/prowlarr-banner.png"
   image: "lscr.io/linuxserver/prowlarr:latest"
@@ -23,3 +23,39 @@
     - name: TZ
       label: TZ
       default: "!TZ"
+- type: 1
+  title: Tolgee
+  name: tolgee
+  description: "Localization platform"
+  logo: "https://raw.githubusercontent.com/tolgee/documentation/main/tolgee_logo_text.svg"
+  image: "tolgee/tolgee:latest"
+  categories:
+    - Tools, Other]
+  platform: linux
+  restart_policy: unless-stopped
+  ports:
+    - WebUI: "8085:8080/tcp"
+  volumes:
+    - container: /data
+      bind: "!data/Tolgee"
+    - container: /config
+      bind: "!config/Tolgee"
+  env:
+    - name: PUID
+      label: PUID
+      default: "!PUID"
+    - name: PGID
+      label: PGID
+      default: "!PGID"
+    - name: tolgee.authentication.enabled
+      label: tolgee.authentication.enabled
+      default: "true"
+    - name: tolgee.authentication.registrations-allowed
+      label: tolgee.authentication.registrations-allowed
+      default: "true"
+    - name: tolgee.authentication.initial-username
+      label: tolgee.authentication.initial-username
+      default: "admin@cotech.et"
+    - name: tolgee.authentication.initial-password
+      label: tolgee.authentication.initial-password
+      default: "password123"
