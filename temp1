@@ -5,7 +5,7 @@
       "name": "prowlarr",
       "description": "Prowlarr is a indexer manager/proxy built on the popular arr .net/reactjs base stack to integrate with your various PVR apps.",
       "logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/prowlarr-banner.png",
-      "image": "linuxserver/prowlarr",
+      "image": "binhex/arch-prowlarr",
       "categories": ["Service", "Tools"],
       "platform": "linux",
       "restart_policy": "unless-stopped",
