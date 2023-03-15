@@ -1,0 +1,25 @@
+- type: 1
+  title: Prowlarr
+  name: booksonic
+  description: "Prowlarr is a indexer manager proxy"
+  logo: "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/prowlarr-banner.png"
+  image: "lscr.io/linuxserver/prowlarr:latest"
+  categories:
+    - Tools, Other]
+  platform: linux
+  restart_policy: unless-stopped
+  ports:
+    - WebUI: "9696:9696/tcp"
+  volumes:
+    - container: /config
+      bind: "!config/Prowlarr"
+  env:
+    - name: PUID
+      label: PUID
+      default: "!PUID"
+    - name: PGID
+      label: PGID
+      default: "!PGID"
+    - name: TZ
+      label: TZ
+      default: "!TZ"
