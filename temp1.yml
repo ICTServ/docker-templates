@@ -1,4 +1,27 @@
 - type: 1
+  title: Gogs
+  name: gogs
+  description: "Gogs (Go Git Service) is a painless self-hosted Git service"
+  logo: "https://raw.githubusercontent.com/gogs/gogs/main/public/img/favicon.png"
+  image: "gogs/gogs"
+  categories:
+    - Tools, Other]
+  platform: linux
+  restart_policy: unless-stopped
+  ports:
+    - 10022:22/tcp
+    - 10880:3000/tcp
+  volumes:
+    - container: /var/gogs/
+    - bind: "!config/Gogs"
+  env:
+    - name: PUID
+      label: PUID
+      default: "!PUID"
+    - name: PGID
+      label: PGID
+      default: "!PGID"
+- type: 1
   title: Prowlarr
   name: prowlarr
   description: "Prowlarr is a indexer manager proxy"
